@@ -1,0 +1,3 @@
+#!/usr/local/bin/bash
+
+./handler ./handler.conf /var/run/fcgi/handler.pid /var/run/fcgi/handler.lock 1

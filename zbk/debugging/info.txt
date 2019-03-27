@@ -1,0 +1,8 @@
+Отладка с помощью VMWawe
+
+В файл виртуальсной системы с расширением *.vmx необходимо добавить следующие строки:
+debugStub.listen.guest32.remote = "TRUE"
+debugStub.listen.guest32 = "TRUE"
+debugStub.hideBreakpoints= "TRUE"
+bios.bootDelay = "3000"
+

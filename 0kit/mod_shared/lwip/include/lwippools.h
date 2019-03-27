@@ -1,0 +1,1 @@
+LWIP_MEMPOOL(QUEUE_POOL, 256, sizeof(queue_node_t)/*, "QUEUE_NODE"*/)

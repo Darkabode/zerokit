@@ -1,0 +1,95 @@
+#ifndef __ZFS_WRAPPER_H_
+#define __ZFS_WRAPPER_H_
+
+#define USERIO_ZDEVICE 65500U
+#define IOCTL_ZFS_WRAPPER_OPEN              CTL_CODE(USERIO_ZDEVICE, 0x901, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_READ              CTL_CODE(USERIO_ZDEVICE, 0x902, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_WRITE             CTL_CODE(USERIO_ZDEVICE, 0x903, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_CLOSE             CTL_CODE(USERIO_ZDEVICE, 0x904, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_UNLINK            CTL_CODE(USERIO_ZDEVICE, 0x906, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_MKDIR             CTL_CODE(USERIO_ZDEVICE, 0x907, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_TELL              CTL_CODE(USERIO_ZDEVICE, 0x908, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_ISEOF             CTL_CODE(USERIO_ZDEVICE, 0x909, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_RMDIR             CTL_CODE(USERIO_ZDEVICE, 0x90A, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_MOVE              CTL_CODE(USERIO_ZDEVICE, 0x90B, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_CHECKVALID        CTL_CODE(USERIO_ZDEVICE, 0x90C, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_GETC              CTL_CODE(USERIO_ZDEVICE, 0x90D, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_PUTC              CTL_CODE(USERIO_ZDEVICE, 0x90E, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_GETLINE           CTL_CODE(USERIO_ZDEVICE, 0x90F, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_SEEK              CTL_CODE(USERIO_ZDEVICE, 0x910, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_FINDFIRST         CTL_CODE(USERIO_ZDEVICE, 0x911, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_FINDNEXT          CTL_CODE(USERIO_ZDEVICE, 0x912, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_GET_TIME          CTL_CODE(USERIO_ZDEVICE, 0x913, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_GET_VERSION       CTL_CODE(USERIO_ZDEVICE, 0x914, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_GET_FILESIZE      CTL_CODE(USERIO_ZDEVICE, 0x915, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_ZFS_WRAPPER_SET_END_OF_FILE   CTL_CODE(USERIO_ZDEVICE, 0x916, METHOD_NEITHER, FILE_ANY_ACCESS)
+#define IOCTL_USERIO_BLOCK_KEYBOARD         CTL_CODE(USERIO_ZDEVICE, 0x917, METHOD_NEITHER, FILE_ANY_ACCESS)
+
+enum {
+    in_type,
+    out_type,
+    in_out_type
+};
+
+enum
+{
+    zfs_wrapper_open_id,
+    zfs_wrapper_close_id,
+    zfs_wrapper_read_id,
+    zfs_wrapper_write_id,
+    zfs_wrapper_seek_id,
+    zfs_wrapper_unlink_id,
+    zfs_wrapper_mkdir_id,
+    zfs_wrapper_tell_id,
+    zfs_wrapper_iseof_id,
+    zfs_wrapper_rmdir_id,
+    zfs_wrapper_move_id,
+    zfs_wrapper_checkvalid_id,
+    zfs_wrapper_getc_id,
+    zfs_wrapper_putc_id,
+    zfs_wrapper_getline_id,
+    zfs_wrapper_findfirst_id,
+    zfs_wrapper_findnext_id,
+    zfs_wrapper_get_time_id,
+    zfs_wrapper_get_version_id,
+    zfs_wrapper_get_filesize_id,
+    zfs_wrapper_setendoffile_id,
+    userio_blockkeyboard_id,
+};
+
+#define REQUEST_SIGNATURE 0x34798977
+
+#ifndef CLIENT_ID_SIZE
+#define CLIENT_ID_SIZE 16
+#endif // CLIENT_ID_SIZE
+
+#pragma pack(push, 1)
+
+typedef struct _file_packet
+{
+    uint32_t signature; // Сигнатура запроса 0x34798977.
+    uint32_t operation; // ID операции.
+    uint32_t handle;    // Описатель файла.
+    int errCode;        // Код ошибки.
+    uint32_t param1;    // Свободный параметр для любых данных.
+    uint8_t clientId[CLIENT_ID_SIZE];   // Уникальный идентификатор клиента.
+    uint32_t dataSize;  // Размер данных.
+    uint8_t data[1];    // Данные.
+} file_packet_t, *pfile_packet_t;
+
+#define MAX_BUFFER_SIZE 0x1000;
+
+typedef struct _file_data
+{
+    char fileName[MAX_PATH];    // Имя файла/директории.
+    int filepoiner;             // для операции установки файлового указателя
+    int bEof;                   // для операции проверки конца файла или при создании и открытии файла - флаги создания\открытия или при выборе типа времени создания файла (возвращается время создания файла при запросе)
+    char origin;                // для операции установки файлового указателя - относительное положение
+    uint32_t fileSize;          // размер файла (обычно возвращается после создания\открытия)
+    uint32_t dataSize;          // размер буфера для операций чтения \ записи
+    uint8_t data[1];            // буфер чтения \ записи  (возможно он будет ограничен MAX_BUFFER_SIZE во избежании излишней траты ядерной памяти (ввод вывод буферизирован))
+} file_data_t, *pfile_data_t;
+
+#pragma pack()
+
+#endif // __ZFS_WRAPPER_H_

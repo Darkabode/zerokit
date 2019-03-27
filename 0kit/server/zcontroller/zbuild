@@ -1,0 +1,9 @@
+#! /bin/sh
+
+POCO_BASE=$(pwd)/../poco
+export POCO_BASE
+
+PROJECT_BASE=$(pwd)
+export PROJECT_BASE
+
+gmake -s

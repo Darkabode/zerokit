@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="9,00"
+	Name="ntdll_finder"
+	ProjectGUID="{BC6D1788-2946-4CDA-B02A-DB88F0478D0B}"
+	RootNamespace="ntdll_finder"
+	Keyword="MakeFileProj"
+	TargetFrameworkVersion="196613"
+	>
+	<Platforms>
+		<Platform
+			Name="Win32"
+		/>
+		<Platform
+			Name="x64"
+		/>
+	</Platforms>
+	<ToolFiles>
+	</ToolFiles>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
+			IntermediateDirectory="$(ConfigurationName)"
+			ConfigurationType="0"
+			BuildLogFile=""
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre wxp no_oacr&#x0D;&#x0A;cd /d c:\_zer0wave\loader\mod_launcher\code\r3_launchers\ntdll_finder\code&#x0D;&#x0A;call buildrv_x32.bat"
+				ReBuildCommandLine="call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre wxp no_oacr&#x0D;&#x0A;cd /d c:\_zer0wave\loader\mod_launcher\code\r3_launchers\ntdll_finder\code&#x0D;&#x0A;del /s /q ..\obj\x32\release&#x0D;&#x0A;call buildrv_x32.bat"
+				CleanCommandLine="del /s /q c:\_zer0wave\loader\mod_launcher\code\r3_launchers\ntdll_finder\obj\x32\release"
+				Output=""
+				PreprocessorDefinitions="WIN32;_X86_;_DDK_;_NDEBUG;DBG=0"
+				IncludeSearchPath="$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt"
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+		<Configuration
+			Name="Release|x64"
+			OutputDirectory="$(SolutionDir)$(PlatformName)\$(ConfigurationName)"
+			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
+			ConfigurationType="0"
+			BuildLogFile=""
+			>
+			<Tool
+				Name="VCNMakeTool"
+				BuildCommandLine="call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre x64 win7 no_oacr&#x0D;&#x0A;cd /d c:\_zer0wave\loader\mod_launcher\code\r3_launchers\ntdll_finder\code&#x0D;&#x0A;call buildrv_x64.bat"
+				ReBuildCommandLine="call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre x64 win7 no_oacr&#x0D;&#x0A;cd /d c:\_zer0wave\loader\mod_launcher\code\r3_launchers\ntdll_finder\code&#x0D;&#x0A;del /s /q ..\obj\x64\release&#x0D;&#x0A;call buildrv_x64.bat"
+				CleanCommandLine="del /s /q c:\_zer0wave\loader\mod_launcher\code\r3_launchers\ntdll_finder\obj\x64\release"
+				Output=""
+				PreprocessorDefinitions="WIN32;_AMD64_;_DDK_;_NDEBUG;DBG=0"
+				IncludeSearchPath="$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt"
+				ForcedIncludes=""
+				AssemblySearchPath=""
+				ForcedUsingAssemblies=""
+				CompileAsManaged=""
+			/>
+		</Configuration>
+	</Configurations>
+	<References>
+	</References>
+	<Files>
+		<Filter
+			Name="code"
+			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
+			>
+			<File
+				RelativePath="..\code\main.c"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="build"
+			>
+			<File
+				RelativePath="..\code\buildrv_x32.bat"
+				>
+			</File>
+			<File
+				RelativePath="..\code\buildrv_x64.bat"
+				>
+			</File>
+			<File
+				RelativePath="..\code\cl_x32.rsp"
+				>
+			</File>
+			<File
+				RelativePath="..\code\cl_x64.rsp"
+				>
+			</File>
+			<File
+				RelativePath="..\code\link_x32.rsp"
+				>
+			</File>
+			<File
+				RelativePath="..\code\link_x64.rsp"
+				>
+			</File>
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

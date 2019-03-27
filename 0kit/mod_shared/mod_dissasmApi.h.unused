@@ -1,0 +1,76 @@
+#ifndef __MODSHARED_DISSASM_H_
+#define __MODSHARED_DISSASM_H_
+
+#define CUSTOM_TABLE 1
+#include "../../shared_code/ring0/hde.h"
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Структуры и определения для слайс-хуков драйвера сетевой карты
+#define LOCAL_HOOK_SIGNATURE ((ulong_t)0x6A910BE2)
+
+#pragma pack(push, 1)
+
+typedef struct _splice_hooker_data
+{
+    uint8_t* fnOrig; // Указатель на трамплин к реальной функции.
+    uint8_t* pTrampoline;          // Указатель на трамплин.
+    pvoid_t pHookContext;
+    uint8_t* pOrigFunc;
+    uint8_t* pRealHookPtr;
+    uint64_t pPrefixBackup;
+    uint64_t pPrefixBackup_x64;
+    uint64_t pHookCopy;
+    uint32_t entrySize;         // Размер точки входа в оригинальной функции.    
+
+    pvoid_t origRetAddr;        // Временное место для хранения оригинального адреса возврата.
+    pvoid_t edxVal;             // Временное место для хранения регистра edx (rdx для x64).
+    pvoid_t ecxVal;             // Временное место для хранения регистра ecx (rcx для x64).
+
+    uint8_t* pHookFunc;
+    pvoid_t pThis;
+} splice_hooker_data_t, *psplice_hooker_data_t;
+
+#pragma pack(pop)
+
+#define THROW(code)	{ ntStatus = (code); goto THROW_OUTRO; }
+#define RETURN		{ ntStatus = STATUS_SUCCESS; goto FINALLY_OUTRO; }
+#define FORCE(expr)	{ if (!NT_SUCCESS(ntStatus = (expr))) goto THROW_OUTRO; }
+
+typedef void (*FnCriticalCallback)(psplice_hooker_data_t pHookerData);
+
+typedef void (*Fndissasm_lock_routine)(PKDPC pDpc, pvoid_t context, pvoid_t arg1, pvoid_t arg2);
+typedef pvoid_t (*Fndissasm_install_hook)(pvoid_t pContext, pvoid_t origProc, pvoid_t hookProc, bool_t triggered, uint8_t* memHookData, uint32_t* allocatedSize, FnCriticalCallback fnCriticalCallback);
+typedef void (*Fndissasm_uninstall_hook)(psplice_hooker_data_t pHookerData);
+
+
+typedef struct _mod_dissasm_private
+{
+    Fndissasm_lock_routine fndissasm_lock_routine;
+
+	uint8_t* pDissasmTable;
+    uint8_t* pModBase;
+
+    ulong_t nshLockAcquired;
+    ulong_t nshCPUsLocked;
+    //uint8_t* pTriggerTrampoline;
+} mod_dissasm_private_t, *pmod_dissasm_private_t;
+
+typedef void (*Fndissasm_shutdown_routine)();
+typedef struct _mod_dissasm_block
+{
+    Fndissasm_shutdown_routine fndissasm_shutdown_routine;
+#ifdef _WIN64
+	Fndissasm64 fndissasm64;
+#else
+	Fndissasm32 fndissasm32;
+#endif
+	Fndissasm fndissasm;
+    
+    Fndissasm_install_hook fndissasm_install_hook;
+    Fndissasm_uninstall_hook fndissasm_uninstall_hook;
+
+	mod_dissasm_private_t;
+} mod_dissasm_block_t, *pmod_dissasm_block_t;
+
+#endif // __MODSHARED_DISSASM_H_

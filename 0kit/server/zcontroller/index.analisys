@@ -1,0 +1,6 @@
+SELECT t.id, t.bundle_id, t.group_id, t.priority, t.bots_accepted FROM tasks t WHERE
+(t.paused = 0) AND
+(t.min_reg_dt <= 1341100800 AND t.max_reg_dt >= 1341100800) AND
+(t.bots_limit > t.bots_accepted) AND
+(t.group_id NOT IN (SELECT task_group_id from bots_task_groups WHERE bot_id = 1))
+ORDER BY t.priority

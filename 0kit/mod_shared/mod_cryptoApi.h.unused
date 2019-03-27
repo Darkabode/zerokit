@@ -1,0 +1,372 @@
+#ifndef __MODSHARED_CRYPTOAPI_H_
+#define __MODSHARED_CRYPTOAPI_H_
+
+#define MPI_INIT pGlobalBlock->pCryptoBlock->fnmpi_init
+#define MPI_FREE pGlobalBlock->pCryptoBlock->fnmpi_free
+#define MPI_GROW pGlobalBlock->pCryptoBlock->fnmpi_grow
+#define MPI_COPY pGlobalBlock->pCryptoBlock->fnmpi_copy
+#define MPI_SWAP pGlobalBlock->pCryptoBlock->fnmpi_swap
+#define MPI_LSET pGlobalBlock->pCryptoBlock->fnmpi_lset
+#define MPI_LSB pGlobalBlock->pCryptoBlock->fnmpi_lsb
+#define MPI_MSB pGlobalBlock->pCryptoBlock->fnmpi_msb
+#define MPI_SIZE pGlobalBlock->pCryptoBlock->fnmpi_size
+#define MPI_GET_DIGIT pGlobalBlock->pCryptoBlock->fnmpi_get_digit
+#define MPI_MUL_HLP pGlobalBlock->pCryptoBlock->fnmpi_mul_hlp
+#define MPI_MUL_MPI pGlobalBlock->pCryptoBlock->fnmpi_mul_mpi
+#define MPI_MUL_INT pGlobalBlock->pCryptoBlock->fnmpi_mul_int
+#define MPI_CMP_ABS pGlobalBlock->pCryptoBlock->fnmpi_cmp_abs
+#define MPI_SUB_HLP pGlobalBlock->pCryptoBlock->fnmpi_sub_hlp
+#define MPI_SUB_ABS pGlobalBlock->pCryptoBlock->fnmpi_sub_abs
+#define MPI_ADD_ABS pGlobalBlock->pCryptoBlock->fnmpi_add_abs
+#define MPI_ADD_MPI pGlobalBlock->pCryptoBlock->fnmpi_add_mpi
+#define MPI_ADD_INT pGlobalBlock->pCryptoBlock->fnmpi_add_int
+#define MPI_SUB_MPI pGlobalBlock->pCryptoBlock->fnmpi_sub_mpi
+#define MPI_SUB_INT pGlobalBlock->pCryptoBlock->fnmpi_sub_int
+#define MPI_MOD_INT pGlobalBlock->pCryptoBlock->fnmpi_mod_int
+#define MPI_CMP_MPI pGlobalBlock->pCryptoBlock->fnmpi_cmp_mpi
+#define MPI_CMP_INT pGlobalBlock->pCryptoBlock->fnmpi_cmp_int
+#define MPI_SHIFT_L pGlobalBlock->pCryptoBlock->fnmpi_shift_l
+#define MPI_SHIFT_R pGlobalBlock->pCryptoBlock->fnmpi_shift_r
+#define MPI_DIV_MPI pGlobalBlock->pCryptoBlock->fnmpi_div_mpi
+#define MPI_DIV_INT pGlobalBlock->pCryptoBlock->fnmpi_div_int
+#define MPI_MOD_MPI pGlobalBlock->pCryptoBlock->fnmpi_mod_mpi
+#define MPI_MONTG_INIT pGlobalBlock->pCryptoBlock->fnmpi_montg_init
+#define MPI_MONTMUL pGlobalBlock->pCryptoBlock->fnmpi_montmul
+#define MPI_MONTRED pGlobalBlock->pCryptoBlock->fnmpi_montred
+#define MPI_EXP_MOD pGlobalBlock->pCryptoBlock->fnmpi_exp_mod
+#define MPI_GCD pGlobalBlock->pCryptoBlock->fnmpi_gcd
+#define MPI_READ_BINARY pGlobalBlock->pCryptoBlock->fnmpi_read_binary
+#define MPI_WRITE_BINARY pGlobalBlock->pCryptoBlock->fnmpi_write_binary
+
+#define RSA_INIT pGlobalBlock->pCryptoBlock->fnrsa_init
+#define RSA_FREE pGlobalBlock->pCryptoBlock->fnrsa_free
+#define RSA_PUBLIC pGlobalBlock->pCryptoBlock->fnrsa_public
+#define RSA_PRIVATE pGlobalBlock->pCryptoBlock->fnrsa_private
+#define RSA_PUBLIC_DECRYPT_HASH pGlobalBlock->pCryptoBlock->fnrsa_public_decrypt_hash
+
+
+#define SHA1_START pGlobalBlock->pCryptoBlock->fnsha1_start
+#define SHA1_PROCESS pGlobalBlock->pCryptoBlock->fnsha1_process
+#define SHA1_UPDATE pGlobalBlock->pCryptoBlock->fnsha1_update
+#define SHA1_FINISH pGlobalBlock->pCryptoBlock->fnsha1_finish
+#define SHA1_SHA1 pGlobalBlock->pCryptoBlock->fnsha1
+
+#define MD5_PROCESS pGlobalBlock->pCryptoBlock->fnmd5_process
+#define MD5_START pGlobalBlock->pCryptoBlock->fnmd5_start
+#define MD5_UPDATE pGlobalBlock->pCryptoBlock->fnmd5_update
+#define MD5_FINISH pGlobalBlock->pCryptoBlock->fnmd5_finish
+#define MD5_MD5 pGlobalBlock->pCryptoBlock->fnmd5
+
+#define ARC4_SETUP pGlobalBlock->pCryptoBlock->fnarc4_setup
+#define ARC4_CRYPT pGlobalBlock->pCryptoBlock->fnarc4_crypt
+
+#define AES_GEN_TABLES pGlobalBlock->pCryptoBlock->fnaes_gen_tables
+#define AES_SETKEY_ENC pGlobalBlock->pCryptoBlock->fnaes_setkey_enc
+#define AES_SETKEY_DEC pGlobalBlock->pCryptoBlock->fnaes_setkey_dec
+#define AES_CRYPT_ECB pGlobalBlock->pCryptoBlock->fnaes_crypt_ecb
+#define AES_CRYPT_CBC pGlobalBlock->pCryptoBlock->fnaes_crypt_cbc
+#define AES_VAR_FSb pGlobalBlock->pCryptoBlock->FSb
+#define AES_VAR_FT0 pGlobalBlock->pCryptoBlock->FT0
+#define AES_VAR_FT1 pGlobalBlock->pCryptoBlock->FT1
+#define AES_VAR_FT2 pGlobalBlock->pCryptoBlock->FT2
+#define AES_VAR_FT3 pGlobalBlock->pCryptoBlock->FT3
+#define AES_VAR_RSb pGlobalBlock->pCryptoBlock->RSb
+#define AES_VAR_RT0 pGlobalBlock->pCryptoBlock->RT0
+#define AES_VAR_RT1 pGlobalBlock->pCryptoBlock->RT1
+#define AES_VAR_RT2 pGlobalBlock->pCryptoBlock->RT2
+#define AES_VAR_RT3 pGlobalBlock->pCryptoBlock->RT3
+#define AES_VAR_RCON pGlobalBlock->pCryptoBlock->RCON
+#define AES_VAR_RCON pGlobalBlock->pCryptoBlock->RCON
+#define AES_VAR_POW pGlobalBlock->pCryptoBlock->pow
+#define AES_VAR_LOG pGlobalBlock->pCryptoBlock->log
+#define AES_VAR_INIT_DONE pGlobalBlock->pCryptoBlock->aes_init_done
+
+#define RSA_ANS1_HASH_SHA1 pGlobalBlock->pCryptoBlock->asn1_hash_sha1
+#include "../../shared_code/bn_mul.h"
+#include "../../shared_code/bignum.h"
+#include "../../shared_code/rsa.h"
+#include "../../shared_code/md5.h"
+#include "../../shared_code/arc4.h"
+#include "../../shared_code/sha1.h"
+#include "../../shared_code/aes.h"
+#include "../../shared_code/lzma.h"
+
+// Определяем заранее, чтобы не использовался стандартный вариант.
+#define FN_HAVEGE_FILL pGlobalBlock->pCryptoBlock->fnhavege_fill
+
+#include "../../shared_code/havege.h"
+
+// base64
+typedef UINT8* (*Fnbase64_encode)(UINT8* outData, const UINT8* inData, uint32_t inSize);
+typedef int (*Fnbase64_decode)(UINT8* inData, uint32_t inSize, UINT8* outData);
+
+typedef void (*Fnmd5_start)(md5_context_t* ctx);
+typedef void (*Fnmd5_process)(md5_context_t *ctx, const uint8_t data[64]);
+typedef void (*Fnmd5_update)(md5_context_t* ctx, const uint8_t* data, size_t size);
+typedef void (*Fnmd5_finish)(md5_context_t* ctx, uint8_t output[16]);
+typedef void (*Fnmd5)(const uint8_t *input, size_t ilen, uint8_t output[16]);
+// typedef void (*Fnmd5_hmac_start)(md5_context_t* ctx, const uint8_t* key, size_t keySize);
+// typedef void (*Fnmd5_hmac_update)(md5_context_t* ctx, const uint8_t* data, size_t size);
+// typedef void (*Fnmd5_hmac_finish)(md5_context_t* ctx, uint8_t output[16]);
+// typedef void (*Fnmd5_hmac_reset)(md5_context_t* ctx);
+// typedef void (*Fnmd5_hmac)(const uint8_t* key, size_t keySize, const uint8_t* data, size_t size, uint8_t output[16]);
+
+
+typedef void (*Fnsha1_start)(sha1_context_t* ctx);
+typedef void (*Fnsha1_process)(sha1_context_t* ctx, const uint8_t data[64]);
+typedef void (*Fnsha1_update)(sha1_context_t* ctx, const uint8_t* data, size_t size);
+typedef void (*Fnsha1_finish)(sha1_context_t* ctx, uint8_t output[20]);
+typedef void (*Fnsha1)(const uint8_t* data, size_t size, uint8_t output[20]);
+// typedef void (*Fnsha1_hmac_start)(sha1_context_t* ctx, const uint8_t* key, size_t keySize);
+// typedef void (*Fnsha1_hmac_update)(sha1_context_t* ctx, const uint8_t* data, size_t size);
+// typedef void (*Fnsha1_hmac_finish)(sha1_context_t* ctx, uint8_t output[20]);
+// typedef void (*Fnsha1_hmac_reset)(sha1_context_t* ctx);
+// typedef void (*Fnsha1_hmac)(const uint8_t* key, size_t keySize, const uint8_t* data, size_t size, uint8_t output[20]);
+
+typedef void (*Fnarc4_crypt_self)(uint8_t* buffer, uint32_t length, const uint8_t* key, uint32_t keylen);
+// 
+// // LZO
+// /* Error codes for the compression/decompression functions. Negative
+//  * values are errors, positive values will be used for special but
+//  * normal events.
+//  */
+// #define LZO_E_OK                    0
+// #define LZO_E_ERROR                 (-1)
+// #define LZO_E_OUT_OF_MEMORY         (-2)    /* [not used right now] */
+// #define LZO_E_NOT_COMPRESSIBLE      (-3)    /* [not used right now] */
+// #define LZO_E_INPUT_OVERRUN         (-4)
+// #define LZO_E_OUTPUT_OVERRUN        (-5)
+// #define LZO_E_LOOKBEHIND_OVERRUN    (-6)
+// #define LZO_E_EOF_NOT_FOUND         (-7)
+// #define LZO_E_INPUT_NOT_CONSUMED    (-8)
+// #define LZO_E_NOT_YET_IMPLEMENTED   (-9)    /* [not used right now] */
+// 
+// typedef int (*Fnlzo_decompress)(const uint8_t* in, uint32_t in_len, uint8_t* out, PUINT out_len);
+
+typedef uint32_t (*Fnhardclock)();
+typedef void (*Fnhavege_fill)(phavege_state_t pHS);
+typedef void (*Fnhavege_init)(phavege_state_t pHS);
+typedef void (*Fnhavege_rand)(phavege_state_t pHS, uint8_t* buf, size_t len);
+
+typedef int (*Fnlzma_decode)(uint8_t* outBuffer, uint32_t* pOutSize, const uint8_t* inBuffer, uint32_t inSize, ELzmaStatus* status);
+
+typedef void (*Fnaes_gen_tables)();
+typedef int (*Fnaes_setkey_enc)(paes_context_t ctx, const uint8_t* key, unsigned int keySize);
+typedef int (*Fnaes_setkey_dec)(paes_context_t ctx, const uint8_t* key, unsigned int keySize);
+typedef int (*Fnaes_crypt_ecb)(paes_context_t ctx, int mode, const uint8_t input[16], uint8_t output[16]);
+typedef int (*Fnaes_crypt_cbc)(paes_context_t ctx, int mode, size_t length, uint8_t iv[16], const uint8_t* input, uint8_t* output);
+
+typedef void (*Fnmpi_init)(mpi_t* X);
+typedef void (*Fnmpi_free)(mpi_t* X);
+typedef int (*Fnmpi_grow)(mpi_t* X, size_t nblimbs);
+typedef int (*Fnmpi_copy)(mpi_t* X, const mpi_t* Y);
+typedef int (*Fnmpi_lset)(mpi_t* X, long z);
+typedef size_t (*Fnmpi_lsb)(const mpi_t* X);
+typedef size_t (*Fnmpi_msb)(const mpi_t* X);
+typedef size_t (*Fnmpi_size)(const mpi_t* X);
+typedef int (*Fnmpi_read_binary)(mpi_t* X, const unsigned char* buf, size_t buflen);
+typedef int (*Fnmpi_write_binary)(const mpi_t* X, unsigned char* buf, size_t buflen);
+typedef int (*Fnmpi_shift_l)(mpi_t* X, size_t count);
+typedef int (*Fnmpi_shift_r)(mpi_t* X, size_t count);
+typedef int (*Fnmpi_cmp_abs)(const mpi_t* X, const mpi_t* Y);
+typedef int (*Fnmpi_cmp_mpi)(const mpi_t* X, const mpi_t* Y);
+typedef int (*Fnmpi_cmp_int)(const mpi_t* X, long z);
+typedef int (*Fnmpi_add_abs)(mpi_t* X, const mpi_t* A, const mpi_t* B);
+typedef void (*Fnmpi_sub_hlp)(size_t n, ulong_t* s, ulong_t* d);
+typedef int (*Fnmpi_sub_abs)(mpi_t* X, const mpi_t* A, const mpi_t* B);
+typedef int (*Fnmpi_add_mpi)(mpi_t* X, const mpi_t* A, const mpi_t* B);
+typedef int (*Fnmpi_sub_mpi)(mpi_t* X, const mpi_t* A, const mpi_t* B);
+typedef int (*Fnmpi_sub_int)(mpi_t* X, const mpi_t* A, long b);
+typedef void (*Fnmpi_mul_hlp)(size_t i, ulong_t* s, ulong_t* d, ulong_t b);
+typedef int (*Fnmpi_mul_mpi)(mpi_t* X, const mpi_t* A, const mpi_t* B);
+typedef int (*Fnmpi_mul_int)(mpi_t* X, const mpi_t* A, long b);
+typedef int (*Fnmpi_div_mpi)(mpi_t* Q, mpi_t* R, const mpi_t* A, const mpi_t* B);
+typedef int (*Fnmpi_mod_mpi)(mpi_t* R, const mpi_t* A, const mpi_t* B);
+typedef void (*Fnmpi_montg_init)(ulong_t* mm, const mpi_t* N);
+typedef void (*Fnmpi_montmul)(mpi_t* A, const mpi_t* B, const mpi_t* N, ulong_t mm, const mpi_t* T);
+typedef void (*Fnmpi_montred)(mpi_t* A, const mpi_t* N, ulong_t mm, const mpi_t* T);
+typedef int (*Fnmpi_exp_mod)(mpi_t* X, const mpi_t* A, const mpi_t* E, const mpi_t* N, mpi_t* _RR);
+typedef int (*Fnmpi_gcd)(mpi_t* G, const mpi_t* A, const mpi_t* B);
+
+// 
+typedef void (*Fnrsa_init)(rsa_context_t* ctx, int padding, int hash_id);
+typedef void (*Fnrsa_free)(rsa_context_t* ctx);
+typedef int (*Fnrsa_check_pubkey)(const rsa_context_t* ctx);
+typedef int (*Fnrsa_check_privkey)(const rsa_context_t* ctx);
+typedef int (*Fnrsa_public)(rsa_context_t* ctx, const uint8_t* input, uint8_t* output);
+typedef int (*Fnrsa_private)(rsa_context_t* ctx, const uint8_t* input, uint8_t* output);
+typedef int (*Fnrsa_pkcs1_encrypt)(rsa_context_t *ctx, int mode, size_t ilen, const uint8_t* input, uint8_t* output);
+typedef int (*Fnrsa_public_decrypt_hash)(rsa_context_t* ctx, uint8_t* sig, uint8_t* hash, int* pHashSize);
+// typedef int (*Fnrsa_pkcs1_sign)(rsa_context_t* ctx, int (*f_rng)(void*), void* p_rng, int mode, int hash_id, unsigned int hashlen, const uint8_t* hash, uint8_t* sig);
+// typedef int (*Fnrsa_pkcs1_verify)(rsa_context_t* ctx, int mode, int hash_id, unsigned int hashlen, const uint8_t* hash, uint8_t* sig);
+
+typedef void (*Fncrypto_random_init)(rsa_context_t* pRsa);
+typedef uint32_t (*Fncrypto_random)(uint32_t* seed);
+
+typedef struct _mod_crypto_private
+{
+    // Приватные функции
+    Fnmd5_process fnmd5_process;    
+    Fnsha1_process fnsha1_process;
+
+    Fnhardclock fnhardclock;
+    Fnhavege_fill fnhavege_fill;
+
+    uint8_t* pModBase;
+
+    // Приватные данные
+    // base64
+    char base64[65 + 7/*padding*/];          // "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+
+    // Salsa20
+    char sigma[16];           // {0x79,0x97,0x11,0x25,0x85,0x07,0x04,0x88,0x65,0x77,0x77,0x79,0x99,0xDE,0xFA,0x11};
+    //    char tau[16];             // {0x0F,0x1E,0x2D,0x3C,0x4B,0x5A,0x69,0x78,0x21,0x34,0x55,0x89,0x79,0xAA,0xBB,0xCC};
+
+    uint8_t hashPadding[64];
+
+    // AES
+    // Forward S-box & tables
+    unsigned char FSb[256];
+    ulong_t FT0[256]; 
+    ulong_t FT1[256]; 
+    ulong_t FT2[256]; 
+    ulong_t FT3[256]; 
+
+    // Reverse S-box & tables
+    unsigned char RSb[256];
+    ulong_t RT0[256];
+    ulong_t RT1[256];
+    ulong_t RT2[256];
+    ulong_t RT3[256];
+
+    // Round constants
+    ulong_t RCON[10];
+
+    // Локальные таблицы из функции aes_gen_tables.
+    int pow[256];
+    int log[256];
+
+    uint8_t asn1_hash_sha1[15];
+    // MPI
+//    mpi_t mpi_exp_mod_W[64];
+
+    int aes_init_done;
+
+    uint32_t randomAuxVarY;
+    uint32_t randomConstantVector[128];
+} mod_crypto_private_t, *pmod_crypto_private_t;
+
+typedef void (*Fncrypto_shutdown_routine)();
+
+typedef struct _mod_crypto_block
+{
+    Fncrypto_shutdown_routine fncrypto_shutdown_routine;
+
+    Fnbase64_encode fnbase64_encode;
+    Fnbase64_decode fnbase64_decode;
+
+    Fnmd5_start fnmd5_start;
+    Fnmd5_update fnmd5_update;
+    Fnmd5_finish fnmd5_finish;
+    Fnmd5 fnmd5;
+//  Fnmd5_hmac_start fnmd5_hmac_start;
+//  Fnmd5_hmac_update fnmd5_hmac_update;
+//  Fnmd5_hmac_finish fnmd5_hmac_finish;
+//  Fnmd5_hmac_reset fnmd5_hmac_reset;
+//  Fnmd5_hmac fnmd5_hmac;
+
+    Fnsha1_start fnsha1_start;
+    Fnsha1_update fnsha1_update;
+    Fnsha1_finish fnsha1_finish;
+    Fnsha1 fnsha1;
+//  Fnsha1_hmac_start fnsha1_hmac_start;
+//  Fnsha1_hmac_update fnsha1_hmac_update;
+//  Fnsha1_hmac_finish fnsha1_hmac_finish;
+//  Fnsha1_hmac_reset fnsha1_hmac_reset;
+//  Fnsha1_hmac fnsha1_hmac;
+
+//  Fnsalsa20_key_setup fnsalsa20_key_setup;
+//  Fnsalsa20_encrypt fnsalsa20_encrypt;
+    Fnhavege_init fnhavege_init;
+    Fnhavege_rand fnhavege_rand;
+
+
+    Fnlzma_decode fnlzma_decode;
+
+
+    Fnaes_gen_tables fnaes_gen_tables;
+    Fnaes_setkey_enc fnaes_setkey_enc;
+    Fnaes_setkey_dec fnaes_setkey_dec;
+    Fnaes_crypt_ecb fnaes_crypt_ecb;
+    Fnaes_crypt_cbc fnaes_crypt_cbc;
+
+    Fnmpi_init fnmpi_init;
+    Fnmpi_free fnmpi_free;
+    Fnmpi_grow fnmpi_grow;
+    Fnmpi_copy fnmpi_copy;
+    Fnmpi_lset fnmpi_lset;
+    Fnmpi_lsb fnmpi_lsb;
+    Fnmpi_msb fnmpi_msb;
+    Fnmpi_size fnmpi_size;
+    Fnmpi_read_binary fnmpi_read_binary;
+    Fnmpi_write_binary fnmpi_write_binary;
+    Fnmpi_shift_l fnmpi_shift_l;
+    Fnmpi_shift_r fnmpi_shift_r;
+    Fnmpi_cmp_abs fnmpi_cmp_abs;
+    Fnmpi_cmp_mpi fnmpi_cmp_mpi;
+    Fnmpi_cmp_int fnmpi_cmp_int;
+    Fnmpi_add_abs fnmpi_add_abs;
+    Fnmpi_sub_hlp fnmpi_sub_hlp;
+    Fnmpi_sub_abs fnmpi_sub_abs;
+    Fnmpi_add_mpi fnmpi_add_mpi;
+    Fnmpi_sub_mpi fnmpi_sub_mpi;
+    Fnmpi_sub_int fnmpi_sub_int;
+    Fnmpi_mul_hlp fnmpi_mul_hlp;
+    Fnmpi_mul_mpi fnmpi_mul_mpi;
+    Fnmpi_mul_int fnmpi_mul_int;
+    Fnmpi_div_mpi fnmpi_div_mpi;
+    Fnmpi_mod_mpi fnmpi_mod_mpi;
+    Fnmpi_montg_init fnmpi_montg_init;
+    Fnmpi_montmul fnmpi_montmul;
+    Fnmpi_montred fnmpi_montred;
+    Fnmpi_exp_mod fnmpi_exp_mod;
+    Fnmpi_gcd fnmpi_gcd;
+
+    Fnrsa_init fnrsa_init;
+    Fnrsa_free fnrsa_free;
+    Fnrsa_check_pubkey fnrsa_check_pubkey;
+    Fnrsa_check_privkey fnrsa_check_privkey;
+    Fnrsa_public fnrsa_public;
+    Fnrsa_private fnrsa_private;
+    Fnrsa_pkcs1_encrypt fnrsa_pkcs1_encrypt;
+    Fnrsa_public_decrypt_hash fnrsa_public_decrypt_hash;
+//     Fnrsa_pkcs1_sign fnrsa_pkcs1_sign;
+//     Fnrsa_pkcs1_verify fnrsa_pkcs1_verify;
+
+    Fnarc4_crypt_self fnarc4_crypt_self;
+    Fncrypto_random_init fncrypto_random_init;
+    Fncrypto_random fncrypto_random;
+
+    mod_crypto_private_t;
+} mod_crypto_block_t, *pmod_crypto_block_t;
+
+#define TINFL_DECOMPRESS pGlobalBlock->pCryptoBlock->fntinfl_decompress
+
+#define FN_HARDCLOCK pGlobalBlock->pCryptoBlock->fnhardclock
+#define FN_HAVEGE_INIT pGlobalBlock->pCryptoBlock->fnhavege_init
+#define FN_HAVEGE_RAND pGlobalBlock->pCryptoBlock->fnhavege_rand
+
+#define RANDOM_AUX_VARY pGlobalBlock->pCryptoBlock->randomAuxVarY
+#define RANDOM_CONSTANT_VECTOR pGlobalBlock->pCryptoBlock->randomConstantVector
+
+#define FN_TINF_BUILD_BITS_BASE pGlobalBlock->pCryptoBlock->fntinf_build_bits_base
+#define FN_TINF_BUILD_TREE pGlobalBlock->pCryptoBlock->fntinf_build_tree
+#define FN_TINF_GETBIT pGlobalBlock->pCryptoBlock->fntinf_getbit
+#define FN_TINF_READ_BITS pGlobalBlock->pCryptoBlock->fntinf_read_bits
+#define FN_TINF_DECODE_SYMBOL pGlobalBlock->pCryptoBlock->fntinf_decode_symbol
+#define FN_TINF_INFLATE_BLOCK_DATA pGlobalBlock->pCryptoBlock->fntinf_inflate_block_data
+#define FN_TINF_ADLER32 pGlobalBlock->pCryptoBlock->fntinf_adler32
+#define FN_TINF_INIT pGlobalBlock->pCryptoBlock->fntinf_init
+#define FN_TINF_DECOMPRESS pGlobalBlock->pCryptoBlock->fntinf_decompress
+
+#endif // __MODSHARED_CRYPTOAPI_H_

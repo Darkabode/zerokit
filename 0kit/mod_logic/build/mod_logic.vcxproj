@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{BC6D1788-2946-4CDA-B02A-DB88F0478D0B}</ProjectGuid>
+    <RootNamespace>mod_logic</RootNamespace>
+    <Keyword>MakeFileProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Makefile</ConfigurationType>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>12.0.30501.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>c:\_zer0wave\loader\mod_logic\obj\x32\debug\</OutDir>
+    <IntDir>c:\_zer0wave\loader\mod_logic\obj\x32\debug\</IntDir>
+    <NMakeBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) chk wxp
+cd /d c:\_zer0wave\loader\mod_logic\code
+call buildrv_x32d.bat</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) chk wxp
+cd /d c:\_zer0wave\loader\mod_logic\code
+del /s /q ..\obj\x32\debug
+call buildrv_x32d.bat</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>del /s /q c:\_zer0wave\loader\mod_logic\obj\x32\debug</NMakeCleanCommandLine>
+    <NMakeOutput>c:\_zer0wave\loader\mods\mod_logic_x32_debug.sys</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_X86_;_DDK_;_DEBUG;DBG=1;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>c:\_zer0wave\loader\mod_logic\obj\x64\debug\</OutDir>
+    <IntDir>c:\_zer0wave\loader\mod_logic\obj\x64\debug\</IntDir>
+    <NMakeBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) chk x64 win7
+cd /d c:\_zer0wave\loader\mod_logic\code
+call buildrv_x64d.bat</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) chk x64 win7
+cd /d c:\_zer0wave\loader\mod_logic\code
+del /s /q ..\obj\x64\debug
+call buildrv_x64d.bat</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>del /s /q c:\_zer0wave\loader\mod_logic\obj\x64\debug</NMakeCleanCommandLine>
+    <NMakeOutput>c:\_zer0wave\loader\mods\mod_logic_x64_debug.sys</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_AMD64_;_DDK_;_DEBUG;DBG=1;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>c:\_______\0\0kit\mod_logic\obj\x32\release\</OutDir>
+    <IntDir>c:\_______\0\0kit\mod_logic\obj\x32\release\</IntDir>
+    <NMakeBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre wxp
+cd /d c:\_______\0\0kit\mod_logic\code
+call buildrv_x32.bat</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre wxp
+cd /d c:\_______\0\0kit\mod_logic\code
+del /s /q ..\obj\x32\release
+call buildrv_x32.bat</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>del /s /q c:\_______\0\0kit\mod_logic\obj\x32\release</NMakeCleanCommandLine>
+    <NMakeOutput>c:\_______\0\0kit\mods\mod_logic_x32.sys</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_X86_;_DDK_;_NDEBUG;DBG=0;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>c:\_______\0\0kit\mod_logic\obj\x64\release\</OutDir>
+    <IntDir>c:\_______\0\0kit\mod_logic\obj\x64\release\</IntDir>
+    <NMakeBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre x64 win7
+cd /d c:\_______\0\0kit\mod_logic\code
+call buildrv_x64.bat</NMakeBuildCommandLine>
+    <NMakeReBuildCommandLine>call $(WDKPATH)\bin\setenv.bat $(WDKPATH) fre x64 win7
+cd /d c:\_______\0\0kit\mod_logic\code
+del /s /q ..\obj\x64\release
+call buildrv_x64.bat</NMakeReBuildCommandLine>
+    <NMakeCleanCommandLine>del /s /q c:\_______\0\0kit\mod_logic\obj\x64\release</NMakeCleanCommandLine>
+    <NMakeOutput>c:\_______\0\0kit\mods\mod_logic_x64.sys</NMakeOutput>
+    <NMakePreprocessorDefinitions>WIN32;_AMD64_;_DDK_;_NDEBUG;DBG=0;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakeIncludeSearchPath>$(WDKPATH)\inc\ddk;$(WDKPATH)\inc\api;$(WDKPATH)\inc\crt;$(NMakeIncludeSearchPath)</NMakeIncludeSearchPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\code\main.c" />
+    <ClCompile Include="..\code\mod_logic.c" />
+    <ClCompile Include="..\code\mod_logicApi.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\mod_shared\headers.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\code\amd64\mod_logicApi.asm" />
+    <None Include="..\code\amd64\private.asm" />
+    <None Include="..\code\buildrv_x32.bat" />
+    <None Include="..\code\buildrv_x32d.bat" />
+    <None Include="..\code\buildrv_x64.bat" />
+    <None Include="..\code\buildrv_x64d.bat" />
+    <None Include="..\code\cl_x32.rsp" />
+    <None Include="..\code\cl_x32d.rsp" />
+    <None Include="..\code\cl_x64.rsp" />
+    <None Include="..\code\cl_x64d.rsp" />
+    <None Include="..\code\link_x32.rsp" />
+    <None Include="..\code\link_x32d.rsp" />
+    <None Include="..\code\link_x64.rsp" />
+    <None Include="..\code\link_x64d.rsp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
