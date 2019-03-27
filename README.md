@@ -1,8 +1,8 @@
 # Intro
 
-Original project name if *ZEROKIT*.
+Original project name is *ZEROKIT*.
 
-Somewhere in sources you can find sig ZPAG. It's mean: Zerokit Powerful As Gog. What is in little-endian mean: GAPZ.
+Somewhere in sources you can find sig *ZPAG*. It's mean: Zerokit Powerful As Gog. What is in little-endian mean: GAPZ.
 
 # Warning
 
