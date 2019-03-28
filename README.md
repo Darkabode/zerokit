@@ -28,13 +28,5 @@ It's my own research and development during 2010-2012 years. But some parts, lik
 - https://github.com/Darkabode/possessor
 - https://github.com/Darkabode/0lib
 
-# Donations are welcome
-
-Now the code is not structured. It takes a lot of time and effort. Any donations can stimulate this work, as well as the publication of other interesting projects.
-
-Ethereum: *0x96165B292200b60D3fB694872C94A4934db7989f*
-
-Bitcoin: *376Dj2c89iLMzfkpH7PXpEfh9B1Bj8MyNJ*
-
 ---
 (c) 2019 Thank you!
