@@ -22,6 +22,7 @@ It's my own research and development during 2010-2012 years. But some parts, lik
 - https://habr.com/ru/company/eset/blog/169131/
 - https://habr.com/ru/company/eset/blog/174169/
 - https://habr.com/ru/company/eset/blog/175911/
+- https://xakep.ru/2013/11/05/full-bootkit-history/
 
 # Other projects
 
