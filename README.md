@@ -23,10 +23,13 @@ It's my own research and development during 2010-2012 years. But some parts, lik
 - https://habr.com/ru/company/eset/blog/174169/
 - https://habr.com/ru/company/eset/blog/175911/
 
-# References
+# Other projects
 
+- https://github.com/Darkabode/0ctrl
 - https://github.com/Darkabode/possessor
+- https://github.com/Darkabode/android-possessor
 - https://github.com/Darkabode/0lib
+- https://github.com/Darkabode/amte
 
 ---
 (c) 2019 Thank you!
