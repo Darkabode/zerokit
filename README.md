@@ -1,4 +1,4 @@
-*Note: Having spent years analyzing anti-virus solutions, I can say one thing - it is a cybernetic tumor that a person acquires due to unscrupulous interaction with technologies.*
+*Note: Having spent years analyzing anti-virus solutions, I can say one thing - it is a cybernetic tumor that a person acquires due to unscrupulous interaction with technologies. Anti-virus companies, as well as pharmaceutical companies - do not trust them!*
 
 # Intro
 
