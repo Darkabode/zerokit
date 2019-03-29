@@ -1,3 +1,5 @@
+*Note: Having spent years analyzing anti-virus solutions, I can say one thing - it is a cybernetic tumor that a person acquires due to unscrupulous interaction with technologies.*
+
 # Intro
 
 Original project name is *ZEROKIT*.
